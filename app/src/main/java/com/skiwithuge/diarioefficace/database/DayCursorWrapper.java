@@ -30,7 +30,7 @@ public class DayCursorWrapper extends CursorWrapper {
         String q5 = getString(getColumnIndex(DayTable.Cols.Q5));
 
         Day day = new Day(UUID.fromString(uuidString));
-        day.setDay(new Date(date));
+        day.setDate(new Date(date));
         day.setQ1(q1);
         day.setQ2(q2);
         day.setQ3(q3);

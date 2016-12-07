@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class Day {
     private UUID mID;
-    private Date mDay;
+    private Date mDate;
     private String mQ1;
     private String mQ2;
     private String mQ3;
@@ -18,15 +18,19 @@ public class Day {
 
     public Day(UUID id) {
         mID = id;
-        mDay = new Date();
+        mDate = new Date();
     }
 
-    public Date getDay() {
-        return mDay;
+    public UUID getId() {
+        return mID;
     }
 
-    public void setDay(Date day) {
-        mDay = day;
+    public Date getDate() {
+        return mDate;
+    }
+
+    public void setDate(Date day) {
+        mDate = day;
     }
 
     public String getQ1() {
