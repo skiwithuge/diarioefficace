@@ -1,6 +1,12 @@
 package com.skiwithuge.diarioefficace.model;
 
+import com.skiwithuge.diarioefficace.Constants;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.UUID;
 
 /**
@@ -8,68 +14,34 @@ import java.util.UUID;
  */
 
 public class Day {
-    private UUID mID;
     private Date mDate;
-    private String mQ1;
-    private String mQ2;
-    private String mQ3;
-    private String mQ4;
-    private String mQ5;
+    private int phase; //0 incomplete, 1 half, 2 completed
 
-    public Day(UUID id) {
-        mID = id;
-        mDate = new Date();
-    }
-
-    public UUID getId() {
-        return mID;
+    public Day(){
+        try {
+            mDate = Constants.sdf.parse(Constants.sdf.format(new Date()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public Date getDate() {
         return mDate;
     }
 
-    public void setDate(Date day) {
-        mDate = day;
+    public void setDate(Date date) {
+        try {
+            mDate = Constants.sdf.parse(Constants.sdf.format(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
-    public String getQ1() {
-        return mQ1;
+    public int getPhase() {
+        return phase;
     }
 
-    public void setQ1(String q1) {
-        mQ1 = q1;
-    }
-
-    public String getQ2() {
-        return mQ2;
-    }
-
-    public void setQ2(String q2) {
-        mQ2 = q2;
-    }
-
-    public String getQ3() {
-        return mQ3;
-    }
-
-    public void setQ3(String q3) {
-        mQ3 = q3;
-    }
-
-    public String getQ4() {
-        return mQ4;
-    }
-
-    public void setQ4(String q4) {
-        mQ4 = q4;
-    }
-
-    public String getQ5() {
-        return mQ5;
-    }
-
-    public void setQ5(String q5) {
-        mQ5 = q5;
+    public void setPhase(int phase) {
+        this.phase = phase;
     }
 }

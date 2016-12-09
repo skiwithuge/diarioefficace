@@ -21,13 +21,17 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DayHolder> {
 
     private List<Day> mDays;
     private Context mContext;
+
+
     public DayAdapter(List<Day> days){
         mDays = days;
     }
+
     public DayAdapter(Context context, List<Day> days){
         mDays = days;
         mContext = context;
     }
+
     @Override
     public DayHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
@@ -53,7 +57,7 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DayHolder> {
     public class DayHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        private TextView mTitle;
+        private TextView mDate;
 
         private Day mDay;
 
@@ -62,12 +66,12 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DayHolder> {
             itemView.setOnClickListener(this);
 
             //TODO continue for the click
-            mTitle = (TextView) itemView.findViewById(R.id.title);
+            mDate = (TextView) itemView.findViewById(R.id.card_date);
         }
 
         public void bindDay(Day day) {
             mDay = day;
-            mTitle.setText(day.getId().toString());
+            mDate.setText(day.getDate().toString());
         }
 
         @Override

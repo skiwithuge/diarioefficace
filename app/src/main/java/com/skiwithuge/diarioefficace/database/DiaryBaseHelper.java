@@ -11,7 +11,7 @@ import com.skiwithuge.diarioefficace.database.DiaryDbSchema.DayTable;
 
 public class DiaryBaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "DiaryBaseHelper";
-    private static final int VERSION = 1;
+    private static final int VERSION = 3;
     private static final String DATABASE_NAME = "diaryBase.db";
 
     public DiaryBaseHelper(Context context) {
@@ -20,20 +20,18 @@ public class DiaryBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + DayTable.NAME + "(" +
-                " _id integer primary key autoincrement, " +
-                DayTable.Cols.UUID + ", " +
-                DayTable.Cols.DAY + ", " +
-                DayTable.Cols.Q1 + ", " +
-                DayTable.Cols.Q2 + ", " +
-                DayTable.Cols.Q3 + ", " +
-                DayTable.Cols.Q4 + ", " +
-                DayTable.Cols.Q5 +
+        db.execSQL("CREATE TABLE " + DayTable.NAME + "(" +
+                " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                DayTable.Cols.DATE + " TEXT UNIQUE , " +
+                DayTable.Cols.PHASE +
                 ")"
         );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + DayTable.NAME);
+
+        onCreate(db);
     }
 }

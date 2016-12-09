@@ -1,22 +1,21 @@
 package com.skiwithuge.diarioefficace.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.skiwithuge.diarioefficace.Constants;
 import com.skiwithuge.diarioefficace.R;
 import com.skiwithuge.diarioefficace.adapter.DayAdapter;
 import com.skiwithuge.diarioefficace.model.Day;
 import com.skiwithuge.diarioefficace.model.DayList;
 
+import java.text.ParseException;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by skiwithuge on 11/19/16.
@@ -57,9 +56,13 @@ public class DiaryListFragment extends Fragment {
     }
 
     private void updateUI() {
-        //UUID id = UUID.randomUUID();
-        //Day day = new Day(id);
-        //DayList.get(getActivity()).addDay(day);
+//        Day day = new Day();
+//        try {
+//            day.setDate(Constants.sdf.parse("2016-12-02"));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        DayList.get(getActivity()).addDay(day);
 
 
         DayList dl = DayList.get(getActivity());

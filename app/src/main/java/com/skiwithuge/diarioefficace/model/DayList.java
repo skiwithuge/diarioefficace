@@ -5,11 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.skiwithuge.diarioefficace.Constants;
 import com.skiwithuge.diarioefficace.database.DayCursorWrapper;
 import com.skiwithuge.diarioefficace.database.DiaryBaseHelper;
 import com.skiwithuge.diarioefficace.database.DiaryDbSchema.DayTable;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,14 +38,8 @@ public class DayList {
 
     private static ContentValues getContentValues(Day day){
         ContentValues values = new ContentValues();
-        values.put(DayTable.Cols.UUID, day.getId().toString());
-        values.put(DayTable.Cols.DAY, day.getDate().toString());
-        values.put(DayTable.Cols.Q1, day.getQ1());
-        values.put(DayTable.Cols.Q2, day.getQ2());
-        values.put(DayTable.Cols.Q3, day.getQ3());
-        values.put(DayTable.Cols.Q4, day.getQ4());
-        values.put(DayTable.Cols.Q5, day.getQ5());
-
+        values.put(DayTable.Cols.DATE, Constants.sdf.format(day.getDate()));
+        values.put(DayTable.Cols.PHASE, day.getPhase());
         return values;
     }
 
@@ -54,12 +50,12 @@ public class DayList {
     }
 
     public void updateDay(Day d){
-        String uuidString = d.getId().toString();
+        String date = d.getDate().toString();
         ContentValues values = getContentValues(d);
 
         mDatabase.update(DayTable.NAME, values,
-                DayTable.Cols.UUID + " = ?",
-                new String[] { uuidString});
+                DayTable.Cols.DATE + " = ?",
+                new String[] { date });
     }
 
     private DayCursorWrapper queryDays(String whereClause, String[] whereArgs){
@@ -70,7 +66,7 @@ public class DayList {
                 whereArgs,
                 null, // groupBy
                 null, // having
-                null // orderBy
+                "date DESC" // orderBy
         );
 
         return new DayCursorWrapper(cursor);
@@ -90,10 +86,10 @@ public class DayList {
         return days;
     }
 
-    public Day getDay(UUID id){
+    public Day getDay(String date){
         DayCursorWrapper cursor = queryDays(
-                DayTable.Cols.UUID + " = ?",
-                new String[] {id.toString()}
+                DayTable.Cols.DATE + " = ?",
+                new String[] {date}
         );
 
         try {
