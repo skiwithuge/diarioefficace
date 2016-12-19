@@ -7,25 +7,15 @@ import java.util.UUID;
  * Created by skiwithuge on 12/9/16.
  */
 
-public class Answer {
-    private UUID mID;
+public class Question {
     private Date mDate;
     private int mQuestionNumber;
-    private String[] mAnswer;
+    private int mSubQuestionNumber;
+    private String mAnswer;
 
-    public Answer(UUID id){
-        mID = id;
+    public Question(){
         mDate = new Date();
     }
-
-    public UUID getID() {
-        return mID;
-    }
-
-    public void setID(UUID ID) {
-        mID = ID;
-    }
-
     public Date getDate() {
         return mDate;
     }
@@ -42,11 +32,19 @@ public class Answer {
         mQuestionNumber = questionNumber;
     }
 
-    public String[] getAnswer() {
+    public String getAnswer() {
         return mAnswer;
     }
 
-    public void setAnswer(String[] answer) {
+    public void setAnswer(String answer) {
         mAnswer = answer;
+    }
+
+    public int getSubQuestionNumber() {
+        return mSubQuestionNumber;
+    }
+
+    public void setSubQuestionNumber(int subQuestionNumber) {
+        mSubQuestionNumber = subQuestionNumber;
     }
 }

@@ -1,7 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/question1"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/q11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert"/>
+        <EditText
+            android:id="@+id/q12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert"/>
+        <EditText
+            android:id="@+id/q13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert"/>
+        <!-- end q1 !-->
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/question2"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/q21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert"/>
+        <EditText
+            android:id="@+id/q22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert"/>
+        <EditText
+            android:id="@+id/q23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert"/>
+        <!-- end q2 !-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/question3"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/q31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert"/>
+        <!-- end q3 !-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/question4"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/q41"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert"/>
+        <EditText
+            android:id="@+id/q42"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert"/>
+        <EditText
+            android:id="@+id/q43"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert"/>
+        <!-- end q4 !-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/question5"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/q51"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -5,13 +5,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.skiwithuge.diarioefficace.database.DiaryDbSchema.DayTable;
+import com.skiwithuge.diarioefficace.database.DiaryDbSchema.QuestionTable;
 /**
  * Created by skiwithuge on 11/20/16.
  */
 
 public class DiaryBaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "DiaryBaseHelper";
-    private static final int VERSION = 3;
+    private static final int VERSION = 4;
     private static final String DATABASE_NAME = "diaryBase.db";
 
     public DiaryBaseHelper(Context context) {
@@ -26,12 +27,20 @@ public class DiaryBaseHelper extends SQLiteOpenHelper {
                 DayTable.Cols.PHASE +
                 ")"
         );
+        db.execSQL("CREATE TABLE " + QuestionTable.NAME + "(" +
+                " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                QuestionTable.Cols.DATE + " TEXT, " +
+                QuestionTable.Cols.QUESTIONNUM + " INTEGER , " +
+                QuestionTable.Cols.SUBQUESTIONNUM + " INTEGER , " +
+                QuestionTable.Cols.TEXT + " TEXT " +
+                ")"
+        );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + DayTable.NAME);
-
-        onCreate(db);
+//        db.execSQL("DROP TABLE IF EXISTS " + DayTable.NAME);
+//        db.execSQL("DROP TABLE IF EXISTS " + QuestionTable.NAME);
+//        onCreate(db);
     }
 }

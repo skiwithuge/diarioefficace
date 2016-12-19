@@ -6,6 +6,11 @@
 
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="question1">Quali sono le tre cose per cui sono grato questa mattina?</string>
+    <string name="question2">Quali sono le tre attività che faranno di oggi una giornata grandiosa?</string>
+    <string name="question3">Chi sarò diventato da qui a 5 anni?</string>
+    <string name="question4">Quali sono state tre cose meravigliose che sono accadute oggi?</string>
+    <string name="question5">In che modo avrei potuto rendere oggi una giornata migliore?</string>
+
+    <string name="insert">Inserisci testo</string>
 </resources>
